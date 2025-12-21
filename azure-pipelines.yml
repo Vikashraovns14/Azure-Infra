@@ -15,3 +15,23 @@ steps:
     backendAzureRmStorageAccountName: 'vkstaorage'
     backendAzureRmContainerName: 'vkstate'
     backendAzureRmKey: 'terraform.tfstate'
+
+
+- task: tfsec@1
+  inputs:
+    version: 'v1.26.0'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'validate'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/envirornments /dev'
+
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/envirornments /dev'
+    environmentServiceNameAzureRM: 'ado_todo_svc'
+
+
