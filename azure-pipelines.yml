@@ -34,4 +34,11 @@ steps:
     workingDirectory: '$(System.DefaultWorkingDirectory)/envirornments /dev'
     environmentServiceNameAzureRM: 'ado_todo_svc'
 
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: '$(System.DefaultWorkingDirectory)/envirornments /dev'
+    environmentServiceNameAzureRM: 'ado_todo_svc'
+
 
