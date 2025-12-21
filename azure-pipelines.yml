@@ -1,6 +1,6 @@
 trigger: none
 
-pool: Agenet VK
+pool: Agent VK
 
 steps:
 - task: TerraformInstaller@1
